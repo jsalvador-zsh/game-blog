@@ -1,0 +1,6 @@
+---
+import HeaderNav from "@components/Header/Header";
+const currentPath = new URL(Astro.request.url).pathname;
+---
+
+<HeaderNav currentPath={currentPath} client:only="react" />

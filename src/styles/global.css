@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+
+:root,
+html[data-theme="light"] {
+  --background: #fdfdfd;
+  --foreground: #282728;
+  --accent: #DC264F;
+  --muted: #e6e6e6e8;
+  --border: #ece9e9;
+  --standard: #ffffff;
+}
+
+html[data-theme="dark"] {
+  --background: #111111;
+  --foreground: #e4e4e5;
+  --accent: #1EDD5F;
+  --muted: #242424;
+  --border: #57936C;
+  --standard: #ffffff;
+
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-standard: var(--standard);
+}
+h1 {
+  @apply text-3xl md:text-4xl font-extrabold mb-4;
+}
+p {
+  @apply text-base md:text-lg mb-4;
+}
+.btn {
+  @apply bg-accent text-background text-center font-semibold py-2 px-4 hover:bg-accent/90 transition duration-300;
+}
+.btn-secondary {
+  @apply bg-accent text-background text-center text-sm font-medium py-1 px-3 hover:bg-accent/90 transition duration-300;
+}

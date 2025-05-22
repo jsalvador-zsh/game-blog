@@ -1,5 +1,5 @@
 ---
-import {Clock, Tag} from '@lucide/astro';
+import { Clock, Tag } from "@lucide/astro";
 
 // Card.astro
 interface Props {
@@ -13,32 +13,41 @@ interface Props {
 const { title, excerpt, featuredImage, date, slug, tags } = Astro.props;
 ---
 
-<div class="overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border border-muted">
+<div
+    class="overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border border-muted"
+>
     <div class="relative overflow-hidden">
-        <img 
+        <img
             src={featuredImage}
-            alt={title} 
-            class="bject-cover duration-300 hover:scale-105" 
+            alt={title}
+            class="bject-cover duration-300 hover:scale-105"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-foreground/30 to-transparent" />
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-foreground/30 to-transparent"
+        >
+        </div>
     </div>
-    
+
     <div class="p-6 space-y-4">
         <div class="flex items-center gap-2 text-sm font-medium">
-            <Clock class="text-accent" size={20} /> <span class="text-accent">{date}</span>
+            <Clock class="text-accent" size={20} />
+            <span class="text-accent">{date}</span>
         </div>
         <div class="flex items-center gap-2 text-foreground">
             <Tag size={20} />
             <div class="flex gap-2 items-center">
-                {tags.map((tag: any) => <span>#{tag.name}</span>)} 
+                {tags.map((tag: any) => <span>#{tag.name}</span>)}
             </div>
         </div>
         <a href={`/post/${slug}`}>
-            <h3 class="text-xl uppercase text-foreground font-extrabold transition-colors"             transition:name={slug}>
-            {title}
-        </h3>
+            <h3
+                class="text-xl uppercase text-foreground font-extrabold transition-colors"
+                transition:name={slug}
+            >
+                {title}
+            </h3>
         </a>
-        <div 
+        <div
             class="text-base text-foreground leading-relaxed line-clamp-3"
             set:html={excerpt}
         />

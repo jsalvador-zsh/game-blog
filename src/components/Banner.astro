@@ -1,26 +1,38 @@
 ---
-import {Clock, Tag} from '@lucide/astro';
+import { getLatestPosts } from "@lib/wp";
+import { Clock, Tag } from '@lucide/astro';
+
+// Obtener el post más reciente (solo 1)
+const [latestPost] = await getLatestPosts({ perPage: 1 });
+const firstThreeTags = latestPost.tags.slice(0, 3);
 ---
+
 <section class="overflow-hidden mx-auto max-w-5xl relative px-4 md:px-0 py-4 md:py-8">
-    <div class="bg-[url('/banner.jpg')] bg-cover bg-top h-[500px] p-8 flex flex-col justify-between">
+    <div 
+        class="bg-cover bg-top h-[500px] p-8 flex flex-col justify-between" 
+        style={`background-image: url(${latestPost.featuredImage})`}
+    >
         <div>
             <div class="flex flex-row items-center space-x-4 mb-2">
                 <a class="btn-secondary" href="#">Reviews</a>
-                <span class="inline-flex items-center gap-2 text-standard text-sm"> <Clock size={16} />2025-05-15</>
+                <span class="inline-flex items-center gap-2 text-standard text-sm">
+                    <Clock size={16} />{latestPost.date}
+                </span>
             </div>
-            <h1 class="text-standard">Elden Ring: Shadow of the Erdtree Review - A Masterful Expansion</h1>
-            <p class="text-standard">FromSoftware expands on their open-world masterpiece with an expansion that exceeds all expectations.</p>
+            <h1 class="text-standard">{latestPost.title}</h1>
+            <p class="text-standard">{latestPost.excerpt.replace(/<[^>]*>?/gm, '')}</p>
         </div>
-        <div class=" flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-2">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-2">
             <div class="flex flex-col md:flex-row md:items-center space-x-4 text-standard">
-                <img src="/user.jpg" alt="Imagen del autor" class="mb-2 size-12 rounded-full object-cover" />
                 <ul class="flex space-x-8 text-sm">
-                    <li class="inline-flex gap-2 items-center"><Tag size={16} /> Elden ring</li>
-                    <li class="inline-flex gap-2 items-center"><Tag size={16} /> FromSoftware</li>
-                    <li class="inline-flex gap-2 items-center"><Tag size={16} /> RPG</li>
+                    {firstThreeTags.map((tag: any) => (
+                        <li class="inline-flex gap-2 items-center">
+                            <Tag size={16} /> {tag.name}
+                        </li>
+                    ))}
                 </ul>
             </div>
-            <a class="btn" href="#">Leer más</a>
+            <a class="inline-flex items-center font-semibold uppercase py-3 px-4 border-2 border-accent hover:border-accent bg-accent text-background hover:text-accent hover:bg-transparent duration-300 transition-colors" href={`/post/${latestPost.slug}`}>Leer más</a>
         </div>
     </div>
 </section>

@@ -1,16 +1,8 @@
 ---
-// GridCard.astro
 import { getPageInfo, getLatestPosts } from "@lib/wp";
 import Card from "./Card.astro";
-const { title, content } = await getPageInfo("bienvenidos-a-gamehub");
 const posts = await getLatestPosts({ perPage: 12 });
 ---
-	<!-- <div class="py-12 md:py-40 container mx-auto max-w-5xl px-4 md:px-0">
-		<h2 class="text-center font-extrabold text-4xl md:text-5xl uppercase text-standard mb-8">
-			{title}
-		</h2>
-		<div set:html={content} class="text-foreground text-base md:text-lg text-center " />
-	</div> -->
 <div class="bg-background border-border">
 	<div class="container mx-auto max-w-5xl py-8 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-0">
 		{posts.map((post: any) => <Card {...post} />)}

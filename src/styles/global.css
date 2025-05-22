@@ -11,7 +11,7 @@ html[data-theme="light"] {
   --accent: #DC264F;
   --muted: #e6e6e6e8;
   --border: #ece9e9;
-  --standard: #ffffff;
+  --standard: #fdfdfd;
 }
 
 html[data-theme="dark"] {
@@ -20,7 +20,7 @@ html[data-theme="dark"] {
   --accent: #1edd5ed6;
   --muted: #242424;
   --border: #57936C;
-  --standard: #ffffff;
+  --standard: #fdfdfd;
 
 }
 
@@ -39,7 +39,7 @@ p {
   @apply text-base md:text-lg mb-4;
 }
 .btn {
-  @apply bg-accent text-background text-center font-semibold py-2 px-4 hover:bg-accent/90 transition duration-300;
+  @apply bg-accent uppercase text-background text-center font-semibold py-2 px-4 hover:bg-accent/90 transition duration-300;
 }
 .btn-secondary {
   @apply bg-accent text-background text-center text-sm font-medium py-1 px-3 hover:bg-accent/90 transition duration-300;

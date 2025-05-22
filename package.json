@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.2.7",
+    "@fontsource/poppins": "^5.2.6",
+    "@fontsource/titillium-web": "^5.2.5",
     "@heroui/react": "^2.7.8",
     "@lucide/astro": "^0.511.0",
     "@tailwindcss/vite": "^4.1.7",

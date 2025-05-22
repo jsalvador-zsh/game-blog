@@ -1,4 +1,13 @@
 ---
+import '../styles/global.css'
+import '@fontsource/titillium-web/400.css';
+import '@fontsource/titillium-web/700.css';
+import '@fontsource/titillium-web/900.css';
+
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/600.css';
+import { ClientRouter } from 'astro:transitions';
+
 import Footer from "@components/Footer/Footer.astro";
 import Header from "@components/Header/Header.astro";
 import "@styles/global.css";
@@ -24,6 +33,7 @@ const { title } = Astro.props as Props;
 		<script is:inline src="/toggle-theme.js"></script>
 	</head>
 	<body>
+		<ClientRouter />
 		<Header />
 		<main>
 			<slot />

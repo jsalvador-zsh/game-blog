@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 @source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
@@ -14,9 +15,9 @@ html[data-theme="light"] {
 }
 
 html[data-theme="dark"] {
-  --background: #111111;
+  --background: #111111f2;
   --foreground: #e4e4e5;
-  --accent: #1EDD5F;
+  --accent: #1edd5ed6;
   --muted: #242424;
   --border: #57936C;
   --standard: #ffffff;

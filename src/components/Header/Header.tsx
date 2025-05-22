@@ -27,7 +27,7 @@ const Header = ({ currentPath }: { currentPath: string }) => {
       <NavbarContent justify="start">
         <NavbarBrand>
           <Gamepad2 className="text-accent mr-2" />
-          <span className="font-extrabold text-2xl bg-gradient-to-r from-accent to-blue-500 bg-clip-text text-transparent">GameBlog</span>
+          <a href="/" className="font-extrabold text-2xl bg-gradient-to-r from-accent to-blue-500 bg-clip-text text-transparent">GameBlog</a>
         </NavbarBrand>
       </NavbarContent>
 

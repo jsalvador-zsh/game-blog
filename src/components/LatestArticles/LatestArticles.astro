@@ -1,10 +1,12 @@
 ---
-import { getPageInfo, getLatestPosts } from "@lib/wp";
+import { getLatestPosts } from "@lib/wp";
 import Card from "./Card.astro";
 const posts = await getLatestPosts({ perPage: 12 });
+
+const remainingPosts = posts.slice(1);
 ---
 <div class="bg-background border-border">
-	<div class="container mx-auto max-w-5xl py-8 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-0">
-		{posts.map((post: any) => <Card {...post} />)}
-	</div>
+    <div class="container mx-auto max-w-5xl py-8 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-0">
+        {remainingPosts.map((post: any) => <Card {...post} />)}
+    </div>
 </div>
